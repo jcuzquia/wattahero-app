@@ -38,4 +38,4 @@ const MyApp = (props: AppPropsWithLayout) => {
   );
 };
 
-export default appWithTranslation(MyApp);
+export default appWithTranslation(MyApp, nextI18NextConfig);
