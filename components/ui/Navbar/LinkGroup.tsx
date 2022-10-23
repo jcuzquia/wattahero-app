@@ -1,6 +1,6 @@
 import { Box, Button } from "@mui/material";
 import { useRouter } from "next/router";
-import { aboutPage, contactPage, pricingPage } from "../../../util";
+import { aboutPage, contactPage, pricingPage } from "../../../utils";
 import { NavLink } from "./NavLink";
 
 const LinkGroup = () => {

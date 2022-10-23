@@ -1,5 +1,5 @@
 import "react-i18next";
-import { Resources as MyResources } from "./types/Resources";
+import { IResources as MyResources } from "./interfaces";
 
 declare module "react-i18next" {
   interface Resources extends MyResources {}

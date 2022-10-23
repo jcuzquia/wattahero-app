@@ -1,15 +1,12 @@
 import { Menu, MenuItem, Typography } from "@mui/material";
 import { FC, useState } from "react";
 import { NavLink } from "./NavLink";
-import { aboutPage, contactPage, pricingPage } from "../../../util/routes";
-interface AppBarMenuProps {
+import { aboutPage, contactPage, pricingPage } from "../../../utils/routes";
+interface Props {
   anchorElNav: HTMLElement | null;
   handleCloseNavMenu: () => void;
 }
-const AppBarMenu: FC<AppBarMenuProps> = ({
-  anchorElNav,
-  handleCloseNavMenu,
-}) => {
+const AppBarMenu: FC<Props> = ({ anchorElNav, handleCloseNavMenu }) => {
   return (
     <Menu
       id="menu-appbar"

@@ -1,14 +1,15 @@
 import { CacheProvider, EmotionCache, ThemeProvider } from "@emotion/react";
 import { CssBaseline } from "@mui/material";
 import { NextPage } from "next";
+import { SessionProvider } from "next-auth/react/index.js";
+import { appWithTranslation } from "next-i18next";
 import type { AppProps } from "next/app";
+import Head from "next/head";
+import { ReactElement, ReactNode } from "react";
+import nextI18NextConfig from "../next-i18next.config.js";
 import "../styles/globals.css";
 import { darkTheme } from "../themes";
-import createEmotionCache from "../util/createEmotionCache";
-import { ReactElement, ReactNode } from "react";
-import Head from "next/head";
-import { appWithTranslation } from "next-i18next";
-import nextI18NextConfig from "../next-i18next.config.js";
+import createEmotionCache from "../utils/createEmotionCache";
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -26,15 +27,20 @@ const MyApp = (props: AppPropsWithLayout) => {
   const getLayout = Component.getLayout || ((page) => page);
 
   return (
-    <CacheProvider value={emotionCache}>
-      <ThemeProvider theme={darkTheme}>
-        <Head>
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-        </Head>
-        <CssBaseline />
-        {getLayout(<Component {...pageProps} />)}
-      </ThemeProvider>
-    </CacheProvider>
+    <SessionProvider>
+      <CacheProvider value={emotionCache}>
+        <ThemeProvider theme={darkTheme}>
+          <Head>
+            <meta
+              name="viewport"
+              content="width=device-width, initial-scale=1"
+            />
+          </Head>
+          <CssBaseline />
+          {getLayout(<Component {...pageProps} />)}
+        </ThemeProvider>
+      </CacheProvider>
+    </SessionProvider>
   );
 };
 

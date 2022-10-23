@@ -1,7 +1,10 @@
 import { Wattapage } from "../interfaces";
 export const homePage: Wattapage = { pageTitle: "Home", href: "/" };
 
-export const signupPage: Wattapage = { pageTitle: "Signup", href: "/signup" };
+export const registerPage: Wattapage = {
+  pageTitle: "Register",
+  href: "/auth/register",
+};
 
 export const loginPage: Wattapage = { pageTitle: "Login", href: "/login" };
 
